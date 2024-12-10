@@ -199,7 +199,7 @@ const HeaderOne = () => {
                       </li>
                       <li className={"header-btn"}>
                         <Link href="#" className="btn">
-                          Buy Now
+                          Deposit Now
                         </Link>
                       </li>
                     </ul>

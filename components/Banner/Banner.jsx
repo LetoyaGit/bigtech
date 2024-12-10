@@ -57,7 +57,7 @@ const Banner = () => {
         <div className="row justify-content-center">
           <div className="col-xl-10">
             <div className="banner-countdown-wrap text-center">
-              <h2 className="title">ICO Will Start In..</h2>
+              <h2 className="title">Trading view</h2>
 
               <CountDownOne />
             </div>

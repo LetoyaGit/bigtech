@@ -21,16 +21,14 @@ const WhoWeAre = () => {
               <div className="section-title mb-30">
                 <span className="sub-title">Who we are</span>
                 <h2 className="title">
-                  The World’s <span>1st ICO</span> Platform That Offers Rewards
+                  Gainwise  <span>FX</span> No.1 Trading Strategy 
                 </h2>
               </div>
               <p>
-                The World’s 1st ICO Platform That Offers Rewards and The
-                platform helps investors to make easy to purchase and sell their
-                tokens
+              Gainwise FX is a reliable, secure, and user-friendly trading platform offering innovative, real-time solutions with advanced tools for seamless trading.
               </p>
               <Link href="/" className="btn">
-                Purchase Tokens
+                Get started 
               </Link>
             </div>
           </div>

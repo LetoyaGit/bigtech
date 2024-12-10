@@ -1,51 +1,39 @@
-import React from "react";
-import Countdown from "react-countdown";
+// TradingViewWidget.jsx
+import React, { useEffect, useRef, memo } from 'react';
 
-const CountDownOne = () => {
-  // Renderer callback with condition
-  const renderer = ({ days, hours, minutes, seconds, completed }) => {
-    if (completed) {
-      return (
-        <>
-          <div className="time-count day">
-            <span>{"00"}</span>Days
-          </div>
-          <div className="time-count hour">
-            <span>{"00"}</span>hour
-          </div>
-          <div className="time-count min">
-            <span>{"00"}</span>minute
-          </div>
-          <div className="time-count sec">
-            <span>{"00"}</span>second
-          </div>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <div className="time-count day">
-            <span>{days < 10 ? "0" + days : days}</span>Days
-          </div>
-          <div className="time-count hour">
-            <span>{hours < 10 ? "0" + hours : hours}</span>hour
-          </div>
-          <div className="time-count min">
-            <span>{minutes < 10 ? "0" + minutes : minutes}</span>minute
-          </div>
-          <div className="time-count sec">
-            <span>{seconds < 10 ? "0" + seconds : seconds}</span>second
-          </div>
-        </>
-      );
-    }
-  };
+function TradingViewWidget() {
+  const container = useRef();
+
+  useEffect(
+    () => {
+      const script = document.createElement("script");
+      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+      script.type = "text/javascript";
+      script.async = true;
+      script.innerHTML = `
+        {
+          "autosize": true,
+          "symbol": "FX:EURUSD",
+          "interval": "D",
+          "timezone": "Etc/UTC",
+          "theme": "dark",
+          "style": "1",
+          "locale": "en",
+          "allow_symbol_change": true,
+          "calendar": false,
+          "support_host": "https://www.tradingview.com"
+        }`;
+      container.current.appendChild(script);
+    },
+    []
+  );
 
   return (
-    <div className="coming-time">
-      <Countdown date={Date.now() + 5000000} renderer={renderer} />
+    <div className="tradingview-widget-container" ref={container} style={{ height: "100%", width: "100%" }}>
+      <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%" }}></div>
+      <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a></div>
     </div>
   );
-};
+}
 
-export default CountDownOne;
+export default memo(TradingViewWidget);

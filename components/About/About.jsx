@@ -1,34 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 const About = () => {
-  const tradingViewRef = useRef(null);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
-    script.type = "text/javascript";
-    script.async = true;
-    script.onload = () => {
-      new window.TradingView.widget({
-        container_id: tradingViewRef.current,
-        symbol: "FX:EURUSD",
-        width: 350,
-        height: 220,
-        locale: "en",
-        dateRange: "12M",
-        colorTheme: "dark",
-        isTransparent: false,
-        autosize: false,
-      });
-    };
-    document.body.appendChild(script);
-
-    // Cleanup function to remove the script after use
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <section id="about" className="about-area-two">
       <div className="container custom-container-four">
@@ -57,8 +29,7 @@ const About = () => {
                     <i className="fas fa-check"></i> BEST STRATEGIES
                   </li>
                   <li>
-                    <i className="fas fa-check"></i> Locked-in have can mountain
-                    thought
+                    <i className="fas fa-check"></i> Locked-in have can mountain thought
                   </li>
                 </ul>
               </div>
@@ -74,15 +45,22 @@ const About = () => {
             </div>
           </div>
         </div>
-        {/* Embed TradingView Widget Below */}
-        <div className="row">
-          <div className="col-12">
+        <div className="row mt-4">
+          <div className="col-12 text-center">
+            {/* Coinlib Widget */}
             <div
-              ref={tradingViewRef}
-              className="tradingview-widget-container"
-            >
-              {/* The widget will be injected into this container */}
-            </div>
+              dangerouslySetInnerHTML={{
+                __html: `
+                  <div id="coinlib-widget">
+                    <script
+                      type="text/javascript"
+                      src="https://widget.coinlib.io/widget?type=single_ticker&theme=dark&coin=BTC&pref=USD"
+                      async
+                    ></script>
+                  </div>
+                `,
+              }}
+            ></div>
           </div>
         </div>
       </div>
