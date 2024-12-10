@@ -28,15 +28,15 @@ const Banner = () => {
             <div className="banner-content text-center">
               <img src={"/img/icon/fire.png"} alt="" />
               <h2 className="title">
-                Join Future of Algorithmic <span>Crypto</span> Trading
+                Trade with Gainwise <span>FX</span> Trading
                 Strategies
               </h2>
             </div>
             <div className="banner-progress-wrap">
               <ul>
-                <li>Pre Sell</li>
-                <li>Soft Cap</li>
-                <li>Bonus</li>
+                <li>Deposit</li>
+                <li>Trade with Gainwise FX</li>
+                <li>Withdraw Earning 24/7</li>
               </ul>
               <div className="progress">
                 <div

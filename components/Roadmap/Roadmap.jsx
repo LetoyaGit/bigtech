@@ -5,71 +5,54 @@ import RoadmapItem from "./RoadmapItem";
 const Roadmap = () => {
   const roadmap_items = [
     {
-      roadmapTitle: "Mid of Q4 2021",
-      title: "Concept",
+      roadmapTitle: "Micro maverick",
+      title: "KES 1500",
       info: [
-        "EVM support for parthians",
-        "SubQuery Academy",
-        "Proof of indexing",
+        "Trade and earn 6% after 1 day",
+        "Trade with a minimum of KES 1300",
+        "Earning is unlimited and trading is done 24/7",
       ],
     },
     {
-      roadmapTitle: "Mid of Q4 2021",
-      title: "Research",
+      roadmapTitle: "Five figure fortress",
+      title: "kES 50,000",
       info: [
-        "SubQuery Builders/Grants Program",
-        "SQT Network contract internal MVP",
-        "Coordinator and client SDK",
+        "Trade and earn 13% after 2 day",
+        "Trade with a minimum of KES 50,000",
+        "Earning is unlimited and trading is done 24/7",
       ],
     },
 
     {
-      roadmapTitle: "Mid of Q4 2021",
-      title: "App beta test",
+      roadmapTitle: "Elite Apex",
+      title: "KES 75,000",
       info: [
-        "Public testnet launch",
-        "SubQuery Network Explorer and dApp",
-        "Point-in-time indexing",
+        "Trade and earn 13% after 2 days",
+        "Trade with a minimum of KES 75,000",
+        "Earning is unlimited and trading is done 24/7",
       ],
     },
 
     {
-      roadmapTitle: "Mid of Q4 2021",
-      title: "Token Test",
+      roadmapTitle: "Summit pro",
+      title: "KES 150,000",
       info: [
-        "SQT token generation event",
-        "Public incentivize testnet launch",
-        "Data traffic insights and reporting",
+        "Trade and earn 20% after 5 days",
+        "Trade with a minimum of KES 150,000",
+        "Earning is unlimited and trading is done 24/7",
       ],
     },
     {
-      roadmapTitle: "Mid of Q4 2021",
-      title: "Alpha Test",
+      roadmapTitle: "Infinity pro",
+      title: "200,000",
       info: [
-        "Launch of the SubQuery Foundation",
-        "Finalise research for other Layer-1 chains",
-        "Liquidity mining program",
+        "Trade and earn 20% after 5 days",
+        "Trade with a minimum of KES 200,000",
+        "Earning is unlimited and trading is done 24/7",
       ],
     },
-    {
-      roadmapTitle: "Mid of Q4 2021",
-      title: "Benefits",
-      info: [
-        "Mainnet launch",
-        "Centralized exchange launch",
-        "Public incentivize testnet",
-      ],
-    },
-    {
-      roadmapTitle: "Mid of Q4 2021",
-      title: "Operational",
-      info: [
-        <>
-          SubQuery launches its <br /> own parthian
-        </>,
-        "SubQuery Foundation",
-      ],
-    },
+    
+    
   ];
 
   const scrollRef = useHorizontalScroll();
@@ -80,9 +63,9 @@ const Roadmap = () => {
         <div className="row justify-content-center">
           <div className="col-xl-5 col-lg-8">
             <div className="section-title text-center mb-60">
-              <span className="sub-title">OUr Roadmap</span>
+              <span className="sub-title">Our Pricing</span>
               <h2 className="title">
-                Bigtech Strategy and <br /> Project <span>Plan</span>
+                Gainwise Strategy and <br /> Project <span>Plan</span>
               </h2>
             </div>
           </div>

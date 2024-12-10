@@ -8,7 +8,7 @@ const ContactOne = () => {
       icon: "fa-envelope",
       content: (
         <>
-          company@gmail.com <br /> infoweb@gmail.com
+          gainwisefx@gmail.com <br /> 
         </>
       ),
     },
@@ -25,8 +25,8 @@ const ContactOne = () => {
       icon: "fa-map-marker-alt",
       content: (
         <>
-          State/province/area: <br />
-          Georgia 198
+          Nairobi <br />
+          Kenya
         </>
       ),
     },
@@ -41,7 +41,7 @@ const ContactOne = () => {
             <div className="section-title text-center mb-70">
               <span className="sub-title">Contact</span>
               <h2 className="title">
-                <span>Contact</span> ICO Crypto
+                <span>Contact</span> Gainwise FX
               </h2>
             </div>
           </div>

@@ -149,7 +149,7 @@ const HeaderOne = () => {
                           className={"section-link"}
                           onClick={() => handleClickScroll("roadmap")}
                         >
-                          Roadmap
+                          Pricing
                         </Link>
                       </li>
                       <li className={"menu-item-has-children"}>

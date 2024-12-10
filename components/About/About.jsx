@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const About = () => {
+  const tradingViewRef = useRef(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.onload = () => {
+      new window.TradingView.widget({
+        container_id: tradingViewRef.current,
+        symbol: "FX:EURUSD",
+        width: 350,
+        height: 220,
+        locale: "en",
+        dateRange: "12M",
+        colorTheme: "dark",
+        isTransparent: false,
+        autosize: false,
+      });
+    };
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script after use
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <section id="about" className="about-area-two">
       <div className="container custom-container-four">
@@ -10,7 +38,7 @@ const About = () => {
               className="about-img-two text-center wow fadeInLeft"
               data-wow-delay=".2s"
             >
-              <img src={"/img/images/h2_about_img.png"} alt="" />
+              <img src={"/img/images/h2_about_img.png"} alt="About Gainwise FX" />
             </div>
           </div>
           <div className="col-lg-6">
@@ -19,28 +47,21 @@ const About = () => {
               data-wow-delay=".2s"
             >
               <div className="section-title section-title-two mb-15">
-                <span className="sub-title">ABOUT Crypto ICO</span>
-                <h2 className="title">
-                  Bigtech Theme is the best for your ICO
-                </h2>
+                <span className="sub-title">ABOUT GAINWISE FX</span>
+                <h2 className="title">Gainwise FX</h2>
               </div>
-              <p>
-                The World’s 1st ICO Platform That Offers Rewards and The
-                platform helps investors to make easy
-              </p>
+              <p>Trading FX made easy and seamless with Gainwise FX</p>
               <div className="about-list">
                 <ul>
                   <li>
-                    <i className="fas fa-check"></i>Mouthwatering leading how
-                    real formula also
+                    <i className="fas fa-check"></i> BEST STRATEGIES
                   </li>
                   <li>
-                    <i className="fas fa-check"></i>Locked-in have can mountain
+                    <i className="fas fa-check"></i> Locked-in have can mountain
                     thought
                   </li>
                 </ul>
               </div>
-
               <a
                 href={"/img/images/h2_about_img.png"}
                 download
@@ -48,8 +69,19 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="btn btn-two"
               >
-                Download Document
+                Get started
               </a>
+            </div>
+          </div>
+        </div>
+        {/* Embed TradingView Widget Below */}
+        <div className="row">
+          <div className="col-12">
+            <div
+              ref={tradingViewRef}
+              className="tradingview-widget-container"
+            >
+              {/* The widget will be injected into this container */}
             </div>
           </div>
         </div>

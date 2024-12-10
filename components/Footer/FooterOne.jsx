@@ -28,8 +28,7 @@ const FooterOne = () => {
                   </Link>
                   <div className="footer-content">
                     <p>
-                      A new way to make the payments easy, reliable and 100%
-                      secure.
+                      Trade with Gainwise FX .
                     </p>
                     <ul className="footer-social">
                       <li>
@@ -118,8 +117,7 @@ const FooterOne = () => {
                   <h4 className="fw-title">Subscribe Newsletter</h4>
                   <div className="footer-newsletter">
                     <p>
-                      Exerci tation ullamcorper suscipit lobortis nisl aliquip
-                      ex ea commodo
+                      Subscribe to our newsletter for latest news
                     </p>
                     <form action="#">
                       <input

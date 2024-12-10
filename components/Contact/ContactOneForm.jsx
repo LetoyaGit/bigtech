@@ -21,7 +21,7 @@ const ContactOneForm = () => {
         </div>
         <div className="submit-btn text-center">
           <button type="submit" className="btn">
-            Send Massage
+            Connect with us
           </button>
         </div>
       </form>
