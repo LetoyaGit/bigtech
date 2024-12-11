@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-function CryptoWidget() {
+function CoinlibWidget() {
   const widgetContainer = useRef();
 
   useEffect(() => {
@@ -9,41 +9,80 @@ function CryptoWidget() {
       widgetContainer.current.innerHTML = ""; // Prevent duplication
     }
 
-    // Check if the script is already present
-    if (!document.getElementById("crypto-widget-script")) {
-      const script = document.createElement("script");
-      script.id = "crypto-widget-script";
-      script.src = "https://price-static.crypto.com/latest/public/static/widget/index.js";
-      script.type = "text/javascript";
-      script.async = true;
+    // Create the iframe element for the widget
+    const iframe = document.createElement("iframe");
+    iframe.src = "https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=6&pref_coin_id=1505&graph=yes";
+    iframe.width = "100%";
+    iframe.height = "409px";
+    iframe.scrolling = "auto";
+    iframe.style.border = "0";
+    iframe.style.margin = "0";
+    iframe.style.padding = "0";
+    iframe.frameBorder = "0";
 
-      // Append the script to the document body
-      document.body.appendChild(script);
-
-      // Wait for the script to load before rendering the widget
-      script.onload = () => {
-        createWidget();
-      };
-    } else {
-      // Script is already present, directly create the widget
-      createWidget();
-    }
-
-    function createWidget() {
-      const widgetDiv = document.createElement("div");
-      widgetDiv.id = "crypto-widget-CoinList";
-      widgetDiv.setAttribute("data-theme", "dark");  // Set dark mode
-      widgetDiv.setAttribute("data-design", "classic");  // Set classic design
-      widgetDiv.setAttribute("data-coin-ids", "1,166,136,382,29,1986,1120");  // Set coin IDs
-      widgetContainer.current.appendChild(widgetDiv);
-    }
+    // Append the iframe to the widget container
+    widgetContainer.current.appendChild(iframe);
   }, []); // Dependency array ensures this runs only once
 
   return (
-    <div ref={widgetContainer} style={{ height: "100%", width: "100%" }}>
-      {/* The widget will render inside this container */}
+    <div
+      ref={widgetContainer}
+      style={{
+        height: "433px",
+        backgroundColor: "#1D2330",
+        overflow: "hidden",
+        boxSizing: "border-box",
+        border: "1px solid #282E3B",
+        borderRadius: "4px",
+        textAlign: "right",
+        lineHeight: "14px",
+        fontSize: "12px",
+        fontFeatureSettings: "normal",
+        textSizeAdjust: "100%",
+        boxShadow: "inset 0 -20px 0 0 #262B38",
+        padding: "0px",
+        margin: "0px",
+        width: "100%",
+      }}
+    >
+      <div
+        style={{
+          height: "413px",
+          padding: "0px",
+          margin: "0px",
+          width: "100%",
+        }}
+      >
+        {/* The widget iframe will render here */}
+      </div>
+      <div
+        style={{
+          color: "#626B7F",
+          lineHeight: "14px",
+          fontWeight: "400",
+          fontSize: "11px",
+          boxSizing: "border-box",
+          padding: "2px 6px",
+          width: "100%",
+          fontFamily: "Verdana, Tahoma, Arial, sans-serif",
+        }}
+      >
+        <a
+          href="https://coinlib.io"
+          target="_blank"
+          style={{
+            fontWeight: "500",
+            color: "#626B7F",
+            textDecoration: "none",
+            fontSize: "11px",
+          }}
+        >
+          Cryptocurrency Prices
+        </a>
+        &nbsp;by Coinlib
+      </div>
     </div>
   );
 }
 
-export default CryptoWidget;
+export default CoinlibWidget;
