@@ -1,39 +1,49 @@
-// TradingViewWidget.jsx
-import React, { useEffect, useRef, memo } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-function TradingViewWidget() {
-  const container = useRef();
+function CryptoWidget() {
+  const widgetContainer = useRef();
 
-  useEffect(
-    () => {
+  useEffect(() => {
+    // Clear the container before adding a new widget
+    if (widgetContainer.current) {
+      widgetContainer.current.innerHTML = ""; // Prevent duplication
+    }
+
+    // Check if the script is already present
+    if (!document.getElementById("crypto-widget-script")) {
       const script = document.createElement("script");
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+      script.id = "crypto-widget-script";
+      script.src = "https://price-static.crypto.com/latest/public/static/widget/index.js";
       script.type = "text/javascript";
       script.async = true;
-      script.innerHTML = `
-        {
-          "autosize": true,
-          "symbol": "FX:EURUSD",
-          "interval": "D",
-          "timezone": "Etc/UTC",
-          "theme": "dark",
-          "style": "1",
-          "locale": "en",
-          "allow_symbol_change": true,
-          "calendar": false,
-          "support_host": "https://www.tradingview.com"
-        }`;
-      container.current.appendChild(script);
-    },
-    []
-  );
+
+      // Append the script to the document body
+      document.body.appendChild(script);
+
+      // Wait for the script to load before rendering the widget
+      script.onload = () => {
+        createWidget();
+      };
+    } else {
+      // Script is already present, directly create the widget
+      createWidget();
+    }
+
+    function createWidget() {
+      const widgetDiv = document.createElement("div");
+      widgetDiv.id = "crypto-widget-CoinList";
+      widgetDiv.setAttribute("data-theme", "dark");  // Set dark mode
+      widgetDiv.setAttribute("data-design", "classic");  // Set classic design
+      widgetDiv.setAttribute("data-coin-ids", "1,166,136,382,29,1986,1120");  // Set coin IDs
+      widgetContainer.current.appendChild(widgetDiv);
+    }
+  }, []); // Dependency array ensures this runs only once
 
   return (
-    <div className="tradingview-widget-container" ref={container} style={{ height: "100%", width: "100%" }}>
-      <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%" }}></div>
-      <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a></div>
+    <div ref={widgetContainer} style={{ height: "100%", width: "100%" }}>
+      {/* The widget will render inside this container */}
     </div>
   );
 }
 
-export default memo(TradingViewWidget);
+export default CryptoWidget;
